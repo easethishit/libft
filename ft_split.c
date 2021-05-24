@@ -10,100 +10,61 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
 	
-int	n_words(char const *s, char c)
+int	word_count(char const *s, char c)
 {
 	int	i;
-	int	words;
 
 	i = 0;
-	words = 0;
-	while (s[i] == c)
-		i++;
-	while (s[i])
+	while (*s)
 	{
-		if (s[i] != c)		
+		while (*s == c)
+			s++;
+		if (*s && *s != c)
 		{
-			words++;
-			while (s[i] && s[i] != c && s[i + 1])
-				i++;
-		}
-		i++;
-	}	
-	return (words);
-}
-
-void	word_malloc(char **tab ,char const *s, char c)
-{
-	int	i;
-	int	w;
-	int	len;
-
-	i = 0;
-	w = 0;
-	len = 0;
-	while (s[i] == c)
-		i++;
-	while (s[i])
-	{
-		while (s[i] && s[i] != c)
-		{
-			len++;
 			i++;
-		}
-		if ((s[i] == c && s[i + 1] != c) || !s[i])
-		{
-			tab[w++] = malloc(sizeof(char) * (len + 1));
-			len = 0;
-		}
-		if (s[i])
-			i++;
-	}
-}
-
-void	writer(char **tab, char const *s, char c)
-{
-	int	i;
-	int	w;
-	int	l;
-
-	i = 0;
-	w = 0;
-	l = 0;
-	while (s[i] == c)
-		i++;
-	while (s[i])
-	{
-		if (s[i] != c)
-			tab[w][l++] = s[i++];
-		if (s[i] == c || !s[i])
-		{
-			if (s[i + 1] != c || !s[i])
-			{
-				tab[w++][l] = '\0';
-				l = 0;
-			}
-			if (s[i])
-				i++;
+			while (*s && *s != c)
+				s++;
 		}
 	}
+	return (i);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
-	size_t	words;
+	const char	*start;
+	int	i;
 
 	if (!s)
-		return (0);
-	words = n_words(s, c);
-	tab = NULL;
-	tab = malloc(sizeof(char *) * words + 1);
-	if (!tab)	
-		return (0);
-	word_malloc(tab, s, c);
-	writer(tab, s, c);
-	tab[words] = NULL;
+		return (NULL);
+	i = 0;
+	tab = malloc((word_count(s, c) + 1) * (sizeof(char *)));
+	if (!tab)
+		return (NULL);
+	while (*s)
+	{
+		if (*s != c)
+		{
+			start = s;
+			while (*s && *s != c)
+				s++;
+			tab[i] = ft_substr(start, 0, (s - start));
+			i++;
+		}
+		else
+			s++;
+	}
+	tab[i] = NULL;
 	return (tab);
+}
+
+int	main()
+{
+	char *s = "esta frase tiene cinco palabras    ";
+	char c = ' ';
+
+	ft_split(s, c);
 }
