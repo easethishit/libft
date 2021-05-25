@@ -5,32 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: elmartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/20 17:18:53 by elmartin          #+#    #+#             */
-/*   Updated: 2021/04/20 19:06:41 by elmartin         ###   ########.fr       */
+/*   Created: 2021/05/25 20:29:25 by elmartin          #+#    #+#             */
+/*   Updated: 2021/05/25 20:50:53 by elmartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_itoa(int nb)
 {
 	char	*str;
-	int	nl;
+	int		nl;
 	long	n;
-	
+
 	n = nb;
 	nl = ft_numlen(nb);
-	str = (char *)malloc(sizeof(char) * (nl + 1));
+	str = malloc(sizeof(char) * (nl + 1));
 	if (!str)
 		return (0);
 	str[nl] = '\0';
 	if (n == 0)
-	{
 		str[0] = '0';
-		return (str);
-	}
-	if (n < 0)	
+	if (n < 0)
 	{
 		str[0] = '-';
 		n *= -1;

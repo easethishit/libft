@@ -6,7 +6,7 @@
 /*   By: elmartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 17:26:00 by elmartin          #+#    #+#             */
-/*   Updated: 2021/05/11 17:31:05 by elmartin         ###   ########.fr       */
+/*   Updated: 2021/05/25 19:33:22 by elmartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	len;
 	unsigned int	i;
-	char		*out_str;
+	char			*out_str;
 
 	if (!s || !f)
 		return (NULL);

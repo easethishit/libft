@@ -6,7 +6,7 @@
 #    By: elmartin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/14 19:07:42 by elmartin          #+#    #+#              #
-#    Updated: 2021/05/18 21:20:51 by elmartin         ###   ########.fr        #
+#    Updated: 2021/05/25 18:48:57 by elmartin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,4 +89,4 @@ bonus:  $(SRCS) $(OBJSBNS)
 	gcc $(CFLAGS) -c $(SRCS) $(SRCSBNS)
 	ar rc $(NAME) $(OBJ) $(OBJSBNS)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

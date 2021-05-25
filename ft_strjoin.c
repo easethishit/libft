@@ -6,7 +6,7 @@
 /*   By: elmartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 17:19:06 by elmartin          #+#    #+#             */
-/*   Updated: 2021/04/20 19:25:36 by elmartin         ###   ########.fr       */
+/*   Updated: 2021/05/25 21:02:49 by elmartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (0);
 	i = 0;
 	j = 0;
-	joints = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	joints = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!joints)
 		return (0);
 	while (s1[i])
@@ -32,7 +32,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	while (s2[j])
 	{
-		joints[i] = s2[j]; 
+		joints[i] = s2[j];
 		i++;
 		j++;
 	}

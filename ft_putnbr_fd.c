@@ -6,7 +6,7 @@
 /*   By: elmartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 17:18:49 by elmartin          #+#    #+#             */
-/*   Updated: 2021/04/20 17:45:01 by elmartin         ###   ########.fr       */
+/*   Updated: 2021/05/25 19:47:33 by elmartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,21 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	nb[11];
-	int	i;
-
 	if (n == -2147483648)
 	{
 		ft_putstr_fd("-2147483648", fd);
 		return ;
 	}
-	i = ft_numlen(n);
-	if (n < 0)
+	else if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		n *= -1;
+		ft_putnbr_fd(-n, fd);
 	}
-	while (n > 0)
+	else if (n > 9 && n <= 2147483647)
 	{
-		nb[--i] = n % 10 + '0';
-		n /= 10;
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
-	ft_putstr_fd(nb, fd);
+	else
+		ft_putchar_fd(n + 48, fd);
 }

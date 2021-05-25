@@ -6,7 +6,7 @@
 /*   By: elmartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 17:05:44 by elmartin          #+#    #+#             */
-/*   Updated: 2021/05/18 18:35:43 by elmartin         ###   ########.fr       */
+/*   Updated: 2021/05/25 21:05:05 by elmartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_strend(char const *s1, char const *set)
 {
 	int	i;
 
-	i = ft_strlen(s1) -  1;
+	i = ft_strlen(s1) - 1;
 	while (s1[i])
 	{
 		if (ft_strchr(set, s1[i]) == 0)
@@ -42,9 +42,9 @@ int	ft_strend(char const *s1, char const *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	start;
-	int	end;
-	int	trimmedlen;
+	int		start;
+	int		end;
+	int		trimmedlen;
 	char	*trimmed;
 
 	if (!s1)

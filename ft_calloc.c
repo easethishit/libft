@@ -6,7 +6,7 @@
 /*   By: elmartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 19:08:51 by elmartin          #+#    #+#             */
-/*   Updated: 2021/04/16 19:16:23 by elmartin         ###   ########.fr       */
+/*   Updated: 2021/05/25 20:53:15 by elmartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ void	*ft_calloc(size_t count, size_t size)
 
 	i = 0;
 	len = count * size;
-	if (!(dst = malloc(sizeof(char) * len)))
+	dst = malloc(sizeof(char) * len);
+	if (!dst)
 		return (0);
-	while (len--)	
+	while (len--)
 	{
 		dst[i] = 0;
 		i++;

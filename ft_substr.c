@@ -6,33 +6,33 @@
 /*   By: elmartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 18:10:41 by elmartin          #+#    #+#             */
-/*   Updated: 2021/05/11 18:10:54 by elmartin         ###   ########.fr       */
+/*   Updated: 2021/05/25 18:38:41 by elmartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*dst;
-	size_t	i;
 	size_t	slen;
+	size_t	len_max;
 
 	if (!s)
 		return (0);
-	dst = malloc(len + 1);
+	slen = ft_strlen(s);
+	if (start >= slen)
+		len_max = 0;
+	else if ((start + len) > slen)
+		len_max = slen - start;
+	else
+		len_max = len;
+	dst = malloc(len_max + 1);
 	if (!dst)
 		return (0);
-	i = 0;
-	slen = ft_strlen(s);
 	if (start < slen)
-	{
-		while (s[start + i] && i < len)
-		{
-			dst[i] = s[start + i];
-			i++;
-		}
-	}
-	dst[i] = 0;
+		ft_memcpy(dst, s + start, len_max);
+	dst[len_max] = 0;
 	return (dst);
 }

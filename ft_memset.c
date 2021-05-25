@@ -6,7 +6,7 @@
 /*   By: elmartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 21:07:49 by elmartin          #+#    #+#             */
-/*   Updated: 2021/04/15 16:18:55 by elmartin         ###   ########.fr       */
+/*   Updated: 2021/05/25 19:48:11 by elmartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	i = 0;
 	while (i < len)
 	{
-		((unsigned char *)b)[i] = (unsigned char)c; // cuando entre en posicion de puntero, al castear doble parentesis.
+		((unsigned char *)b)[i] = (unsigned char)c;
 		i++;
 	}
 	return (b);

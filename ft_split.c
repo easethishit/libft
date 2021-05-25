@@ -6,13 +6,12 @@
 /*   By: elmartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 16:39:20 by elmartin          #+#    #+#             */
-/*   Updated: 2021/05/18 18:37:36 by elmartin         ###   ########.fr       */
+/*   Updated: 2021/05/25 19:45:29 by elmartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-	
+
 int	word_count(char const *s, char c)
 {
 	int	i;
@@ -34,9 +33,9 @@ int	word_count(char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**tab;
+	char		**tab;
 	const char	*start;
-	int	i;
+	int			i;
 
 	if (!s)
 		return (NULL);
@@ -59,12 +58,4 @@ char	**ft_split(char const *s, char c)
 	}
 	tab[i] = NULL;
 	return (tab);
-}
-
-int	main()
-{
-	char *s = "esta frase tiene cinco palabras    ";
-	char c = ' ';
-
-	ft_split(s, c);
 }

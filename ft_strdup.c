@@ -6,7 +6,7 @@
 /*   By: elmartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 19:19:12 by elmartin          #+#    #+#             */
-/*   Updated: 2021/04/20 17:43:32 by elmartin         ###   ########.fr       */
+/*   Updated: 2021/05/25 20:03:07 by elmartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 char	*ft_strdup(const char *s1)
 {
-	char *sc;
+	char	*sc;
 
-	if (!(sc = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1)))
+	sc = malloc(sizeof(char) * ft_strlen(s1) + 1);
+	if (!sc)
 		return (0);
-	if (sc)
+	else
 		ft_strcpy(sc, s1);
 	return (sc);
 }
